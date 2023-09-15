@@ -7,6 +7,11 @@ html {
   height: 100%;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
   width: 100vw;
   height: 100vh;
@@ -29,6 +34,7 @@ html {
   flex-direction: row;
   align-items: center;
   width: 400%;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slide {
@@ -60,11 +66,13 @@ html {
   color: #333;
 }
 
-.controls-wrapper {
-  margin-top: 2%;
-}
 
 .controls {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  margin-top: 2%;
+  margin-right: 3%;
   display: flex;
   column-gap: 15px;
 }
@@ -113,4 +121,34 @@ html {
   background-color: #333;
   border: 3px solid #fbbd08;
   transform: scale(1.1);
+}
+
+.text-wrapper {
+  flex-grow: 1;
+}
+
+.text {
+  /* display: none; */
+  visibility: hidden;
+  /* width: 0; */
+  height: 0;
+  text-align: left;
+  color: #fff;
+  font-size: 18px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+
+.slide1:checked~.text-wrapper .text1,
+.slide2:checked~.text-wrapper .text2,
+.slide3:checked~.text-wrapper .text3,
+.slide4:checked~.text-wrapper .text4 {
+  /* display: block; */
+  visibility: visible;
+  /* width: auto; */
+  height: auto;
+  opacity: 1;
+  transform: translateY(0);
 }
